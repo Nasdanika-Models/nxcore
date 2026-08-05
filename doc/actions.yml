@@ -1,0 +1,12 @@
+Action:
+    icon: https://docs.nasdanika.org/images/nasdanika-logo.png
+    text: Nasdanika Product Management Model
+    location: https://product-management.models.nasdanika.org/
+    children:
+     - ActionReference: "target/action-models/actions.xmi#/"
+    navigation:
+      - Action:
+          text: Source
+          icon: fab fa-github
+          location: https://github.com/Nasdanika-Models/product-management
+          

@@ -1,0 +1,4 @@
+
+```drawio-resource
+../nxcore.drawio
+```
