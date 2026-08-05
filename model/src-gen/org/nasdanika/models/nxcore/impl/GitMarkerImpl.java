@@ -13,8 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.nxcore.GitMarker;
@@ -37,7 +35,7 @@ import org.nasdanika.models.nxcore.NxcorePackage;
  *
  * @generated
  */
-public class GitMarkerImpl extends MinimalEObjectImpl.Container implements GitMarker {
+public class GitMarkerImpl extends MarkerImpl implements GitMarker {
 	/**
 	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -85,16 +83,6 @@ public class GitMarkerImpl extends MinimalEObjectImpl.Container implements GitMa
 	@Override
 	protected EClass eStaticClass() {
 		return NxcorePackage.Literals.GIT_MARKER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

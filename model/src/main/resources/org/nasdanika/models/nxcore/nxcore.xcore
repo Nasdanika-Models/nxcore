@@ -117,7 +117,7 @@ class Marker {
 	
 }
 
-class GitMarker {
+class GitMarker extends Marker {
 
 	/**
 	 * Path in the repository
