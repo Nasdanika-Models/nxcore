@@ -1552,15 +1552,6 @@ public interface NxcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPEL_EVALUATOR___EVALUATE__CLASS_MAP = EVALUATOR___EVALUATE__CLASS_MAP;
-
-	/**
-	 * The operation id for the '<em>Evaluate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int SPEL_EVALUATOR___EVALUATE__CLASS = EVALUATOR___EVALUATE__CLASS;
 
 	/**
@@ -1582,13 +1573,22 @@ public interface NxcorePackage extends EPackage {
 	int SPEL_EVALUATOR___EVALUATE = EVALUATOR___EVALUATE;
 
 	/**
+	 * The operation id for the '<em>Evaluate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPEL_EVALUATOR___EVALUATE__CLASS_MAP = EVALUATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Spel Evaluator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPEL_EVALUATOR_OPERATION_COUNT = EVALUATOR_OPERATION_COUNT + 0;
+	int SPEL_EVALUATOR_OPERATION_COUNT = EVALUATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.nxcore.impl.ScriptEvaluatorImpl <em>Script Evaluator</em>}' class.
@@ -1697,15 +1697,6 @@ public interface NxcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPT_EVALUATOR___EVALUATE__CLASS_MAP = SOURCE_EVALUATOR___EVALUATE__CLASS_MAP;
-
-	/**
-	 * The operation id for the '<em>Evaluate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int SCRIPT_EVALUATOR___EVALUATE__CLASS = SOURCE_EVALUATOR___EVALUATE__CLASS;
 
 	/**
@@ -1727,13 +1718,22 @@ public interface NxcorePackage extends EPackage {
 	int SCRIPT_EVALUATOR___EVALUATE = SOURCE_EVALUATOR___EVALUATE;
 
 	/**
+	 * The operation id for the '<em>Evaluate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_EVALUATOR___EVALUATE__CLASS_MAP = SOURCE_EVALUATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Script Evaluator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPT_EVALUATOR_OPERATION_COUNT = SOURCE_EVALUATOR_OPERATION_COUNT + 0;
+	int SCRIPT_EVALUATOR_OPERATION_COUNT = SOURCE_EVALUATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.nxcore.impl.GroovyEvaluatorImpl <em>Groovy Evaluator</em>}' class.
@@ -1833,15 +1833,6 @@ public interface NxcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROOVY_EVALUATOR___EVALUATE__CLASS_MAP = SOURCE_EVALUATOR___EVALUATE__CLASS_MAP;
-
-	/**
-	 * The operation id for the '<em>Evaluate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int GROOVY_EVALUATOR___EVALUATE__CLASS = SOURCE_EVALUATOR___EVALUATE__CLASS;
 
 	/**
@@ -1863,13 +1854,22 @@ public interface NxcorePackage extends EPackage {
 	int GROOVY_EVALUATOR___EVALUATE = SOURCE_EVALUATOR___EVALUATE;
 
 	/**
+	 * The operation id for the '<em>Evaluate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROOVY_EVALUATOR___EVALUATE__CLASS_MAP = SOURCE_EVALUATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Groovy Evaluator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROOVY_EVALUATOR_OPERATION_COUNT = SOURCE_EVALUATOR_OPERATION_COUNT + 0;
+	int GROOVY_EVALUATOR_OPERATION_COUNT = SOURCE_EVALUATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '<em>Instant</em>' data type.
@@ -2594,6 +2594,16 @@ public interface NxcorePackage extends EPackage {
 	EAttribute getSpelEvaluator_Expression();
 
 	/**
+	 * Returns the meta object for the '{@link org.nasdanika.models.nxcore.SpelEvaluator#evaluate(java.lang.Class, java.util.Map) <em>Evaluate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Evaluate</em>' operation.
+	 * @see org.nasdanika.models.nxcore.SpelEvaluator#evaluate(java.lang.Class, java.util.Map)
+	 * @generated
+	 */
+	EOperation getSpelEvaluator__Evaluate__Class_Map();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.nxcore.ScriptEvaluator <em>Script Evaluator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2615,6 +2625,16 @@ public interface NxcorePackage extends EPackage {
 	EAttribute getScriptEvaluator_Language();
 
 	/**
+	 * Returns the meta object for the '{@link org.nasdanika.models.nxcore.ScriptEvaluator#evaluate(java.lang.Class, java.util.Map) <em>Evaluate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Evaluate</em>' operation.
+	 * @see org.nasdanika.models.nxcore.ScriptEvaluator#evaluate(java.lang.Class, java.util.Map)
+	 * @generated
+	 */
+	EOperation getScriptEvaluator__Evaluate__Class_Map();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.nxcore.GroovyEvaluator <em>Groovy Evaluator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2623,6 +2643,16 @@ public interface NxcorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGroovyEvaluator();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.models.nxcore.GroovyEvaluator#evaluate(java.lang.Class, java.util.Map) <em>Evaluate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Evaluate</em>' operation.
+	 * @see org.nasdanika.models.nxcore.GroovyEvaluator#evaluate(java.lang.Class, java.util.Map)
+	 * @generated
+	 */
+	EOperation getGroovyEvaluator__Evaluate__Class_Map();
 
 	/**
 	 * Returns the meta object for data type '{@link java.time.Instant <em>Instant</em>}'.
@@ -3243,6 +3273,14 @@ public interface NxcorePackage extends EPackage {
 		EAttribute SPEL_EVALUATOR__EXPRESSION = eINSTANCE.getSpelEvaluator_Expression();
 
 		/**
+		 * The meta object literal for the '<em><b>Evaluate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPEL_EVALUATOR___EVALUATE__CLASS_MAP = eINSTANCE.getSpelEvaluator__Evaluate__Class_Map();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.nxcore.impl.ScriptEvaluatorImpl <em>Script Evaluator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3261,6 +3299,14 @@ public interface NxcorePackage extends EPackage {
 		EAttribute SCRIPT_EVALUATOR__LANGUAGE = eINSTANCE.getScriptEvaluator_Language();
 
 		/**
+		 * The meta object literal for the '<em><b>Evaluate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCRIPT_EVALUATOR___EVALUATE__CLASS_MAP = eINSTANCE.getScriptEvaluator__Evaluate__Class_Map();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.nxcore.impl.GroovyEvaluatorImpl <em>Groovy Evaluator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3269,6 +3315,14 @@ public interface NxcorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass GROOVY_EVALUATOR = eINSTANCE.getGroovyEvaluator();
+
+		/**
+		 * The meta object literal for the '<em><b>Evaluate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GROOVY_EVALUATOR___EVALUATE__CLASS_MAP = eINSTANCE.getGroovyEvaluator__Evaluate__Class_Map();
 
 		/**
 		 * The meta object literal for the '<em>Instant</em>' data type.

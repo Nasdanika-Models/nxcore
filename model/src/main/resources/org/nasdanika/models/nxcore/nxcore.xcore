@@ -258,6 +258,7 @@ abstract class NamedPeriod extends NamedElement, Period {
 
 }
 
+
 // --- Evaluators ---
 
 interface Evaluator extends Documented, Marked {
@@ -295,13 +296,24 @@ class SpelEvaluator extends Evaluator {
 	/* SpEL expression text, parsed to org.springframework.expression.Expression */
 	String expression
 	
+	@GenModel(body="return org.nasdanika.models.nxcore.util.EvaluatorSupport.evaluateSpel(this, resultType, bindings);")
+	op <T> T evaluate(Class<T> resultType, Map<String, Object> bindings)
+	
 }
 
 class ScriptEvaluator extends SourceEvaluator {
 	/* JSR-223 engine short name. Required for script; for scriptRef
 	 * falls back to selection by URI extension. */
 	String language
+	
+	@GenModel(body="return org.nasdanika.models.nxcore.util.EvaluatorSupport.evaluateScript(this, resultType, bindings);")
+	op <T> T evaluate(Class<T> resultType, Map<String, Object> bindings)
+	
 }
 
 class GroovyEvaluator extends SourceEvaluator {
+	
+	@GenModel(body="return org.nasdanika.models.nxcore.util.EvaluatorSupport.evaluateGroovy(this, resultType, bindings);")
+	op <T> T evaluate(Class<T> resultType, Map<String, Object> bindings)
+	
 }

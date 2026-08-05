@@ -922,6 +922,16 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getSpelEvaluator__Evaluate__Class_Map() {
+		return spelEvaluatorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getScriptEvaluator() {
 		return scriptEvaluatorEClass;
 	}
@@ -942,8 +952,28 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getScriptEvaluator__Evaluate__Class_Map() {
+		return scriptEvaluatorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGroovyEvaluator() {
 		return groovyEvaluatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getGroovyEvaluator__Evaluate__Class_Map() {
+		return groovyEvaluatorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1105,11 +1135,14 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 
 		spelEvaluatorEClass = createEClass(SPEL_EVALUATOR);
 		createEAttribute(spelEvaluatorEClass, SPEL_EVALUATOR__EXPRESSION);
+		createEOperation(spelEvaluatorEClass, SPEL_EVALUATOR___EVALUATE__CLASS_MAP);
 
 		scriptEvaluatorEClass = createEClass(SCRIPT_EVALUATOR);
 		createEAttribute(scriptEvaluatorEClass, SCRIPT_EVALUATOR__LANGUAGE);
+		createEOperation(scriptEvaluatorEClass, SCRIPT_EVALUATOR___EVALUATE__CLASS_MAP);
 
 		groovyEvaluatorEClass = createEClass(GROOVY_EVALUATOR);
+		createEOperation(groovyEvaluatorEClass, GROOVY_EVALUATOR___EVALUATE__CLASS_MAP);
 
 		// Create data types
 		instantEDataType = createEDataType(INSTANT);
@@ -1287,10 +1320,55 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 		initEClass(spelEvaluatorEClass, SpelEvaluator.class, "SpelEvaluator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpelEvaluator_Expression(), theEcorePackage.getEString(), "expression", null, 0, 1, SpelEvaluator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getSpelEvaluator__Evaluate__Class_Map(), null, "evaluate", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		t1 = addETypeParameter(op, "T");
+		g1 = createEGenericType(this.getClass_());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "resultType", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getMap());
+		g2 = createEGenericType(theEcorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(this.getObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "bindings", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		initEOperation(op, g1);
+
 		initEClass(scriptEvaluatorEClass, ScriptEvaluator.class, "ScriptEvaluator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScriptEvaluator_Language(), theEcorePackage.getEString(), "language", null, 0, 1, ScriptEvaluator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getScriptEvaluator__Evaluate__Class_Map(), null, "evaluate", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		t1 = addETypeParameter(op, "T");
+		g1 = createEGenericType(this.getClass_());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "resultType", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getMap());
+		g2 = createEGenericType(theEcorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(this.getObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "bindings", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		initEOperation(op, g1);
+
 		initEClass(groovyEvaluatorEClass, GroovyEvaluator.class, "GroovyEvaluator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getGroovyEvaluator__Evaluate__Class_Map(), null, "evaluate", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		t1 = addETypeParameter(op, "T");
+		g1 = createEGenericType(this.getClass_());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "resultType", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getMap());
+		g2 = createEGenericType(theEcorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(this.getObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "bindings", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		initEOperation(op, g1);
 
 		// Initialize data types
 		initEDataType(instantEDataType, Instant.class, "Instant", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1456,16 +1534,34 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 			   "documentation", " URI resolved against eResource().getURI()."
 		   });
 		addAnnotation
+		  (getSpelEvaluator__Evaluate__Class_Map(),
+		   source,
+		   new String[] {
+			   "body", "return org.nasdanika.models.nxcore.util.EvaluatorSupport.evaluateSpel(this, resultType, bindings);"
+		   });
+		addAnnotation
 		  (getSpelEvaluator_Expression(),
 		   source,
 		   new String[] {
 			   "documentation", " SpEL expression text, parsed to org.springframework.expression.Expression"
 		   });
 		addAnnotation
+		  (getScriptEvaluator__Evaluate__Class_Map(),
+		   source,
+		   new String[] {
+			   "body", "return org.nasdanika.models.nxcore.util.EvaluatorSupport.evaluateScript(this, resultType, bindings);"
+		   });
+		addAnnotation
 		  (getScriptEvaluator_Language(),
 		   source,
 		   new String[] {
 			   "documentation", " JSR-223 engine short name. Required for script; for scriptRef\nfalls back to selection by URI extension."
+		   });
+		addAnnotation
+		  (getGroovyEvaluator__Evaluate__Class_Map(),
+		   source,
+		   new String[] {
+			   "body", "return org.nasdanika.models.nxcore.util.EvaluatorSupport.evaluateGroovy(this, resultType, bindings);"
 		   });
 	}
 

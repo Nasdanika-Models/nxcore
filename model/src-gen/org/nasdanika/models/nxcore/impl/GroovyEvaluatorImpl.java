@@ -2,18 +2,16 @@
  */
 package org.nasdanika.models.nxcore.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Map;
 
-import org.codehaus.groovy.control.CompilerConfiguration;
-import org.codehaus.groovy.runtime.InvokerHelper;
-import org.codehaus.groovy.runtime.typehandling.DefaultTypeTransformation;
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.nasdanika.models.nxcore.GroovyEvaluator;
 import org.nasdanika.models.nxcore.NxcorePackage;
-
-import groovy.lang.Binding;
-import groovy.lang.GroovyClassLoader;
-import groovy.lang.Script;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,48 +39,30 @@ public class GroovyEvaluatorImpl extends SourceEvaluatorImpl implements GroovyEv
 	protected EClass eStaticClass() {
 		return NxcorePackage.Literals.GROOVY_EVALUATOR;
 	}
-	
-	private transient Class<? extends Script> scriptClass; // guarded by this
-	private transient String compiledSource;
 
 	/**
-	 * @generated NOT
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
-	public <T> T evaluate(Class<T> resultType, Map<String, Object> bindings) {
-		String source = loadSource();
-		Class<? extends Script> theClass;
-		synchronized (this) {
-			if (scriptClass == null || !source.equals(compiledSource)) {
-				CompilerConfiguration config = new CompilerConfiguration();
-				GroovyClassLoader classLoader =
-					new GroovyClassLoader(getClass().getClassLoader(), config);
-				String scriptName = getScriptRef() != null && !getScriptRef().isBlank()
-					? resolveScriptRef().lastSegment()
-					: "GroovyEvaluator_" + Integer.toHexString(System.identityHashCode(this));
-				@SuppressWarnings("unchecked")
-				Class<? extends Script> parsed =
-					(Class<? extends Script>) classLoader.parseClass(source, scriptName);
-				scriptClass = parsed;
-				compiledSource = source;
-			}
-			theClass = scriptClass;
-		}
+	public <T> T evaluate(final Class<T> resultType, final Map<String, Object> bindings) {
+		return org.nasdanika.models.nxcore.util.EvaluatorSupport.evaluateGroovy(this, resultType, bindings);
+	}
 
-		Binding binding = new Binding(bindings == null
-			? new java.util.HashMap<>()
-			: new java.util.HashMap<>(bindings));
-		Script script = InvokerHelper.createScript(theClass, binding);
-		Object result = script.run();
-
-		if (resultType == null || result == null) {
-			@SuppressWarnings("unchecked")
-			T ret = (T) result;
-			return ret;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings({"rawtypes", "unchecked" })
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case NxcorePackage.GROOVY_EVALUATOR___EVALUATE__CLASS_MAP:
+				return evaluate((Class)arguments.get(0), (Map<String, Object>)arguments.get(1));
 		}
-		@SuppressWarnings("unchecked")
-		T ret = (T) DefaultTypeTransformation.castToType(result, resultType);
-		return ret;
-	}	
+		return super.eInvoke(operationID, arguments);
+	}
 
 } //GroovyEvaluatorImpl

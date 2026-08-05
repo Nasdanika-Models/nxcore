@@ -1,4 +1,4 @@
-package org.nasdanika.models.nxcore.dsl;
+package org.nasdanika.models.nxcore.capability;
 
 import java.io.File;
 import java.net.URI;
@@ -6,10 +6,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
-import javax.script.CompiledScript;
-
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -20,7 +17,6 @@ import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
-import org.nasdanika.capability.emf.ResourceContentsHandler;
 import org.nasdanika.groovy.DslResourceContentsHandler;
 import org.nasdanika.models.nxcore.GitMarker;
 import org.nasdanika.models.nxcore.Marked;
@@ -29,17 +25,13 @@ import org.nasdanika.models.nxcore.NxcoreFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MarkingDslResourceContentsHandler extends DslResourceContentsHandler {
+public class DslMarker implements DslResourceContentsHandler.Marker {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(MarkingDslResourceContentsHandler.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DslMarker.class);
 
 	private Marker markerTemplate;
-
-	public MarkingDslResourceContentsHandler(
-			Resource resource, 
-			ResourceContentsHandler<CompiledScript> sourceHandler,
-			EPackage... ePackages) {		
-		super(resource, sourceHandler, ePackages);
+	
+	public DslMarker(Resource resource) {
 		org.eclipse.emf.common.util.URI resourceURI = resource.getURI();
 		
 		try {
@@ -91,15 +83,14 @@ public class MarkingDslResourceContentsHandler extends DslResourceContentsHandle
 			}
 		}
 	}
-	
+
 	@Override
-	protected void mark(EObject eObject, EStructuralFeature feature, int line, int col) {
+	public void mark(EObject eObject, EStructuralFeature feature, int line, int col) {
 		if (eObject instanceof Marked marked) {
 			Marker marker = EcoreUtil.copy(markerTemplate);
 			marker.setPosition(String.valueOf(line)); // col is always -1 for now
 			marked.getMarkers().add(marker);
 		}
-		super.mark(eObject, feature, line, col);
-	}	
+	}
 
 }

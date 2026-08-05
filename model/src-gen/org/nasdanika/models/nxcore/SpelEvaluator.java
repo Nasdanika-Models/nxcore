@@ -2,6 +2,7 @@
  */
 package org.nasdanika.models.nxcore;
 
+import java.util.Map;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,5 +45,13 @@ public interface SpelEvaluator extends Evaluator {
 	 * @generated
 	 */
 	void setExpression(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" resultTypeDataType="org.nasdanika.models.nxcore.Class&lt;T&gt;" resultTypeUnique="false" bindingsDataType="org.nasdanika.models.nxcore.Map&lt;org.eclipse.emf.ecore.EString, org.nasdanika.models.nxcore.Object&gt;" bindingsUnique="false"
+	 * @generated
+	 */
+	<T> T evaluate(Class<T> resultType, Map<String, Object> bindings);
 
 } // SpelEvaluator

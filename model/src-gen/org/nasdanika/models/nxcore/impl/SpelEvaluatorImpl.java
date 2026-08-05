@@ -233,10 +233,8 @@ public class SpelEvaluatorImpl extends MinimalEObjectImpl.Container implements S
 	 * @generated
 	 */
 	@Override
-	public <T> T evaluate(Class<T> resultType, Map<String, Object> bindings) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public <T> T evaluate(final Class<T> resultType, final Map<String, Object> bindings) {
+		return org.nasdanika.models.nxcore.util.EvaluatorSupport.evaluateSpel(this, resultType, bindings);
 	}
 
 	/**

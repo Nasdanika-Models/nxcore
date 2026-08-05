@@ -2,6 +2,12 @@
  */
 package org.nasdanika.models.nxcore.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
+import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.nasdanika.models.nxcore.NxcorePackage;
@@ -76,6 +82,16 @@ public class ScriptEvaluatorImpl extends SourceEvaluatorImpl implements ScriptEv
 	 * @generated
 	 */
 	@Override
+	public <T> T evaluate(final Class<T> resultType, final Map<String, Object> bindings) {
+		return org.nasdanika.models.nxcore.util.EvaluatorSupport.evaluateScript(this, resultType, bindings);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case NxcorePackage.SCRIPT_EVALUATOR__LANGUAGE:
@@ -126,6 +142,21 @@ public class ScriptEvaluatorImpl extends SourceEvaluatorImpl implements ScriptEv
 				return LANGUAGE_EDEFAULT == null ? getLanguage() != null : !LANGUAGE_EDEFAULT.equals(getLanguage());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings({"rawtypes", "unchecked" })
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case NxcorePackage.SCRIPT_EVALUATOR___EVALUATE__CLASS_MAP:
+				return evaluate((Class)arguments.get(0), (Map<String, Object>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ScriptEvaluatorImpl
