@@ -18,6 +18,10 @@ annotation "urn:org.nasdanika" as Nasdanika
 type Instant wraps java.time.Instant
 type Duration wraps java.time.Duration 
 
+type Class<T> wraps java.lang.Class
+type Map<K, V> wraps java.util.Map
+type Object wraps java.lang.Object
+
 interface Referrable {
     
     op void collect(
@@ -146,6 +150,12 @@ class GitMarker extends Marker {
 	
 }
 
+interface Marked {
+	
+	contains Marker[] markers
+	
+}
+
 /**
  * Section/documentation content
  */
@@ -206,7 +216,7 @@ interface Documented {
 	
 }
 
-abstract class ModelElement extends StringIdentity, Documented {
+abstract class ModelElement extends StringIdentity, Documented, Marked {
 
 // id, documentation, uris - aliases
 
@@ -246,4 +256,52 @@ abstract class NamedElement extends ModelElement {
 abstract class NamedPeriod extends NamedElement, Period {
 
 
+}
+
+// --- Evaluators ---
+
+interface Evaluator extends Documented, Marked {
+	/*
+	 * Evaluates this evaluator's expression/script against the provided
+	 * bindings and coerces the result to resultType.
+	 * Analogous to javax.script.CompiledScript.eval(), but the source
+	 * comes from the evaluator instance itself.
+	 */
+	op <T> T evaluate(Class<T> resultType, Map<String, Object> bindings)
+	
+	op <T> T evaluate(Class<T> resultType) {
+		return evaluate(resultType, null)
+	}
+	
+	op Object evaluate(Map<String, Object> bindings) {
+		return evaluate(null, bindings)
+	}
+	
+	op Object evaluate() {
+		return evaluate(null, null)
+	}
+	
+}
+
+/* Carries script source, inline or by reference. Exactly one of
+ * script and scriptRef must be set. */
+abstract class SourceEvaluator extends Evaluator {
+	String script
+	/* URI resolved against eResource().getURI(). */
+	String scriptRef
+}
+
+class SpelEvaluator extends Evaluator {
+	/* SpEL expression text, parsed to org.springframework.expression.Expression */
+	String expression
+	
+}
+
+class ScriptEvaluator extends SourceEvaluator {
+	/* JSR-223 engine short name. Required for script; for scriptRef
+	 * falls back to selection by URI extension. */
+	String language
+}
+
+class GroovyEvaluator extends SourceEvaluator {
 }
