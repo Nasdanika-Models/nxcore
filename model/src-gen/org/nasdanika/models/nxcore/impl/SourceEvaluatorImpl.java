@@ -2,22 +2,22 @@
  */
 package org.nasdanika.models.nxcore.impl;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
-
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.nasdanika.models.nxcore.Content;
 import org.nasdanika.models.nxcore.Marked;
 import org.nasdanika.models.nxcore.Marker;
@@ -502,5 +502,42 @@ public abstract class SourceEvaluatorImpl extends MinimalEObjectImpl.Container i
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+	
+	/**
+	 * @generated NOT
+	 * @return
+	 */
+	protected String loadSource() {
+		String script = getScript();
+		String scriptRef = getScriptRef();
+		boolean hasScript = script != null && !script.isBlank();
+		boolean hasScriptRef = scriptRef != null && !scriptRef.isBlank();
+		if (hasScript == hasScriptRef) {
+			throw new IllegalStateException(
+				"Exactly one of script and scriptRef must be set: " + this);
+		}
+		if (hasScript) {
+			return script;
+		}
+		URI refURI = resolveScriptRef();
+		URIConverter uriConverter = eResource() != null && eResource().getResourceSet() != null
+			? eResource().getResourceSet().getURIConverter()
+			: URIConverter.INSTANCE;
+		try (InputStream in = uriConverter.createInputStream(refURI)) {
+			return new String(in.readAllBytes(), StandardCharsets.UTF_8);
+		} catch (IOException e) {
+			throw new IllegalStateException("Cannot load script from " + refURI + ": " + e, e);
+		}
+	}
+
+	protected URI resolveScriptRef() {
+		URI refURI = URI.createURI(getScriptRef());
+		Resource resource = eResource();
+		if (refURI.isRelative() && resource != null
+				&& resource.getURI() != null && resource.getURI().isHierarchical()) {
+			refURI = refURI.resolve(resource.getURI());
+		}
+		return refURI;
+	}	
 
 } //SourceEvaluatorImpl
