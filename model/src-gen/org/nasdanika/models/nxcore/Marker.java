@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.nxcore.Marker#getPosition <em>Position</em>}</li>
  *   <li>{@link org.nasdanika.models.nxcore.Marker#getComment <em>Comment</em>}</li>
  *   <li>{@link org.nasdanika.models.nxcore.Marker#getDate <em>Date</em>}</li>
+ *   <li>{@link org.nasdanika.models.nxcore.Marker#getFeature <em>Feature</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.nxcore.NxcorePackage#getMarker()
@@ -113,5 +114,31 @@ public interface Marker extends EObject {
 	 * @generated
 	 */
 	void setDate(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Feature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * Feature name for feature markers
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Feature</em>' attribute.
+	 * @see #setFeature(String)
+	 * @see org.nasdanika.models.nxcore.NxcorePackage#getMarker_Feature()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getFeature();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.nxcore.Marker#getFeature <em>Feature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Feature</em>' attribute.
+	 * @see #getFeature()
+	 * @generated
+	 */
+	void setFeature(String value);
 
 } // Marker

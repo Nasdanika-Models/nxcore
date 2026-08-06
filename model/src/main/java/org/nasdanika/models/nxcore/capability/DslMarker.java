@@ -89,6 +89,9 @@ public class DslMarker implements DslResourceContentsHandler.Marker {
 		if (eObject instanceof Marked marked) {
 			Marker marker = EcoreUtil.copy(markerTemplate);
 			marker.setPosition(String.valueOf(line)); // col is always -1 for now
+			if (feature != null) {
+				marker.setFeature(feature.getName());
+			}
 			marked.getMarkers().add(marker);
 		}
 	}

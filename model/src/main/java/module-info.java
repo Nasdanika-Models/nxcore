@@ -1,4 +1,6 @@
 import org.nasdanika.capability.CapabilityFactory;
+import org.nasdanika.models.nxcore.capability.DslMarkerCapabilityFactory;
+import org.nasdanika.models.nxcore.capability.EvaluatorCapabilityFactory;
 import org.nasdanika.models.nxcore.capability.NxcoreEPackageResourceSetCapabilityFactory;
 
 module org.nasdanika.models.nxcore {
@@ -6,7 +8,6 @@ module org.nasdanika.models.nxcore {
 	exports org.nasdanika.models.nxcore;
 	exports org.nasdanika.models.nxcore.impl;
 	exports org.nasdanika.models.nxcore.util;
-	exports org.nasdanika.models.nxcore.dsl;
 	opens org.nasdanika.models.nxcore;
 	
 	requires transitive org.eclipse.emf.ecore;
@@ -18,6 +19,8 @@ module org.nasdanika.models.nxcore {
 	requires org.apache.groovy;	
 	
 	provides CapabilityFactory with 
-		NxcoreEPackageResourceSetCapabilityFactory;
+		NxcoreEPackageResourceSetCapabilityFactory,
+		DslMarkerCapabilityFactory,
+		EvaluatorCapabilityFactory;
 	
 }

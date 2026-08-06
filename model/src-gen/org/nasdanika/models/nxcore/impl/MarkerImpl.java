@@ -23,6 +23,7 @@ import org.nasdanika.models.nxcore.NxcorePackage;
  *   <li>{@link org.nasdanika.models.nxcore.impl.MarkerImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link org.nasdanika.models.nxcore.impl.MarkerImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.nasdanika.models.nxcore.impl.MarkerImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.nasdanika.models.nxcore.impl.MarkerImpl#getFeature <em>Feature</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +68,16 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 	 * @ordered
 	 */
 	protected static final Date DATE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getFeature() <em>Feature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeature()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FEATURE_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,6 +194,26 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 	 * @generated
 	 */
 	@Override
+	public String getFeature() {
+		return (String)eDynamicGet(NxcorePackage.MARKER__FEATURE, NxcorePackage.Literals.MARKER__FEATURE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFeature(String newFeature) {
+		eDynamicSet(NxcorePackage.MARKER__FEATURE, NxcorePackage.Literals.MARKER__FEATURE, newFeature);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case NxcorePackage.MARKER__LOCATION:
@@ -193,6 +224,8 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 				return getComment();
 			case NxcorePackage.MARKER__DATE:
 				return getDate();
+			case NxcorePackage.MARKER__FEATURE:
+				return getFeature();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,6 +249,9 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 				return;
 			case NxcorePackage.MARKER__DATE:
 				setDate((Date)newValue);
+				return;
+			case NxcorePackage.MARKER__FEATURE:
+				setFeature((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -241,6 +277,9 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 			case NxcorePackage.MARKER__DATE:
 				setDate(DATE_EDEFAULT);
 				return;
+			case NxcorePackage.MARKER__FEATURE:
+				setFeature(FEATURE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -261,6 +300,8 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 				return COMMENT_EDEFAULT == null ? getComment() != null : !COMMENT_EDEFAULT.equals(getComment());
 			case NxcorePackage.MARKER__DATE:
 				return DATE_EDEFAULT == null ? getDate() != null : !DATE_EDEFAULT.equals(getDate());
+			case NxcorePackage.MARKER__FEATURE:
+				return FEATURE_EDEFAULT == null ? getFeature() != null : !FEATURE_EDEFAULT.equals(getFeature());
 		}
 		return super.eIsSet(featureID);
 	}

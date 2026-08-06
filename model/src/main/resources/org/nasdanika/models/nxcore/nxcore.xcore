@@ -119,6 +119,11 @@ class Marker {
 	
 	Date date
 	
+	/**
+	 * Feature name for feature markers
+	 */
+	String feature
+	
 }
 
 class GitMarker extends Marker {

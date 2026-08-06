@@ -522,6 +522,16 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMarker_Feature() {
+		return (EAttribute)markerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGitMarker() {
 		return gitMarkerEClass;
 	}
@@ -1083,6 +1093,7 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 		createEAttribute(markerEClass, MARKER__POSITION);
 		createEAttribute(markerEClass, MARKER__COMMENT);
 		createEAttribute(markerEClass, MARKER__DATE);
+		createEAttribute(markerEClass, MARKER__FEATURE);
 
 		gitMarkerEClass = createEClass(GIT_MARKER);
 		createEAttribute(gitMarkerEClass, GIT_MARKER__PATH);
@@ -1237,6 +1248,7 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 		initEAttribute(getMarker_Position(), theEcorePackage.getEString(), "position", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMarker_Comment(), theEcorePackage.getEString(), "comment", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMarker_Date(), theEcorePackage.getEDate(), "date", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMarker_Feature(), theEcorePackage.getEString(), "feature", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gitMarkerEClass, GitMarker.class, "GitMarker", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGitMarker_Path(), theEcorePackage.getEString(), "path", null, 0, 1, GitMarker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1418,6 +1430,12 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 		   source,
 		   new String[] {
 			   "body", "final <%org.eclipse.emf.common.util.BasicEList%><<%org.eclipse.emf.ecore.EObject%>> ret = new <%org.eclipse.emf.common.util.BasicEList%><<%org.eclipse.emf.ecore.EObject%>>();\nfinal <%org.eclipse.emf.ecore.resource.Resource%> res = this.eResource();\n<%org.eclipse.emf.common.util.TreeIterator%><?> cit = null;\nif ((res == null))\n{\n\t<%org.eclipse.emf.ecore.EObject%> root = this;\n\t<%org.eclipse.emf.ecore.EObject%> rc = null;\n\twhile (((rc = root.eContainer()) != null))\n\t{\n\t\troot = rc;\n\t}\n\tif ((root != null))\n\t{\n\t\tthis.collect(root, eReference, ret);\n\t\tcit = root.eAllContents();\n\t}\n}\nelse\n{\n\tfinal <%org.eclipse.emf.ecore.resource.ResourceSet%> rSet = res.getResourceSet();\n\t<%org.eclipse.emf.common.util.TreeIterator%><? extends <%org.eclipse.emf.common.notify.Notifier%>> _xifexpression = null;\n\tif ((rSet == null))\n\t{\n\t\t_xifexpression = res.getAllContents();\n\t}\n\telse\n\t{\n\t\t_xifexpression = rSet.getAllContents();\n\t}\n\tcit = _xifexpression;\n}\nif ((cit != null))\n{\n\twhile (cit.hasNext())\n\t{\n\t\tthis.collect(cit.next(), eReference, ret);\n\t}\n}\nreturn ret;"
+		   });
+		addAnnotation
+		  (getMarker_Feature(),
+		   source,
+		   new String[] {
+			   "documentation", "*\nFeature name for feature markers"
 		   });
 		addAnnotation
 		  (getGitMarker_Path(),
