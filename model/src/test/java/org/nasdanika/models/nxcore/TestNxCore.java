@@ -1,13 +1,11 @@
 package org.nasdanika.models.nxcore;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -32,7 +30,9 @@ public class TestNxCore {
 		File groovyFile = new File("src/test/resources/test-evaluator.groovy").getCanonicalFile();
 		Resource groovyResource = resourceSet.getResource(URI.createFileURI(groovyFile.getAbsolutePath()), true);
 
-		// TODO - call evaluate
+		Object result = ((Evaluator) groovyResource.getContents().get(0)).evaluate();
+		System.out.println("Result: " + result);
+		assertEquals(4, result);		
 		
 		File ecoreFile = new File("target/test-evaluator.groovy.xml").getCanonicalFile();
 		Resource ecoreResource = resourceSet.createResource(URI.createFileURI(ecoreFile.getAbsolutePath()));

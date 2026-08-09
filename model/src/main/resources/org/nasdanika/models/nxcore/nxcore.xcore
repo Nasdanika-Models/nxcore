@@ -322,3 +322,5 @@ class GroovyEvaluator extends SourceEvaluator {
 	op <T> T evaluate(Class<T> resultType, Map<String, Object> bindings)
 	
 }
+
+// TODO - resource (name, uri, documented), resource domain
