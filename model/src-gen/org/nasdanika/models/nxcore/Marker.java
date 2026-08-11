@@ -4,6 +4,8 @@ package org.nasdanika.models.nxcore;
 
 import java.util.Date;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,6 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.nxcore.Marker#getComment <em>Comment</em>}</li>
  *   <li>{@link org.nasdanika.models.nxcore.Marker#getDate <em>Date</em>}</li>
  *   <li>{@link org.nasdanika.models.nxcore.Marker#getFeature <em>Feature</em>}</li>
+ *   <li>{@link org.nasdanika.models.nxcore.Marker#getDigest <em>Digest</em>}</li>
+ *   <li>{@link org.nasdanika.models.nxcore.Marker#getChildren <em>Children</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.nxcore.NxcorePackage#getMarker()
@@ -140,5 +144,49 @@ public interface Marker extends EObject {
 	 * @generated
 	 */
 	void setFeature(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Digest</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * Optional source hash/digest.
+	 * E.g. SHA for a text file or Merkle tree hash for models - may exclude some features and may be also computed on graphs including non-containment references, not only on trees
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Digest</em>' attribute.
+	 * @see #setDigest(String)
+	 * @see org.nasdanika.models.nxcore.NxcorePackage#getMarker_Digest()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getDigest();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.nxcore.Marker#getDigest <em>Digest</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Digest</em>' attribute.
+	 * @see #getDigest()
+	 * @generated
+	 */
+	void setDigest(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.nxcore.Marker}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * Child markers. For example, a feature can be computed from two features with their own markers. In this case those markers may be recorded as
+	 * children of a parent marker.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Children</em>' containment reference list.
+	 * @see org.nasdanika.models.nxcore.NxcorePackage#getMarker_Children()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Marker> getChildren();
 
 } // Marker

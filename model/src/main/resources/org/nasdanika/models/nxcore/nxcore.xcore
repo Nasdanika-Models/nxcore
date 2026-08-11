@@ -124,6 +124,18 @@ class Marker {
 	 */
 	String feature
 	
+	/**
+	 * Optional source hash/digest. 
+	 * E.g. SHA for a text file or Merkle tree hash for models - may exclude some features and may be also computed on graphs including non-containment references, not only on trees
+	 */
+	String digest
+	
+	/**
+	 * Child markers. For example, a feature can be computed from two features with their own markers. In this case those markers may be recorded as 
+	 * children of a parent marker.
+	 */
+	contains Marker[] children
+	
 }
 
 class GitMarker extends Marker {

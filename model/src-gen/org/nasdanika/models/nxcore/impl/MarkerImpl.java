@@ -2,11 +2,19 @@
  */
 package org.nasdanika.models.nxcore.impl;
 
+import java.util.Collection;
 import java.util.Date;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.nxcore.Marker;
 import org.nasdanika.models.nxcore.NxcorePackage;
@@ -24,6 +32,8 @@ import org.nasdanika.models.nxcore.NxcorePackage;
  *   <li>{@link org.nasdanika.models.nxcore.impl.MarkerImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.nasdanika.models.nxcore.impl.MarkerImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.nasdanika.models.nxcore.impl.MarkerImpl#getFeature <em>Feature</em>}</li>
+ *   <li>{@link org.nasdanika.models.nxcore.impl.MarkerImpl#getDigest <em>Digest</em>}</li>
+ *   <li>{@link org.nasdanika.models.nxcore.impl.MarkerImpl#getChildren <em>Children</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +88,16 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 	 * @ordered
 	 */
 	protected static final String FEATURE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getDigest() <em>Digest</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDigest()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DIGEST_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -214,6 +234,51 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 	 * @generated
 	 */
 	@Override
+	public String getDigest() {
+		return (String)eDynamicGet(NxcorePackage.MARKER__DIGEST, NxcorePackage.Literals.MARKER__DIGEST, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDigest(String newDigest) {
+		eDynamicSet(NxcorePackage.MARKER__DIGEST, NxcorePackage.Literals.MARKER__DIGEST, newDigest);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Marker> getChildren() {
+		return (EList<Marker>)eDynamicGet(NxcorePackage.MARKER__CHILDREN, NxcorePackage.Literals.MARKER__CHILDREN, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case NxcorePackage.MARKER__CHILDREN:
+				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case NxcorePackage.MARKER__LOCATION:
@@ -226,6 +291,10 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 				return getDate();
 			case NxcorePackage.MARKER__FEATURE:
 				return getFeature();
+			case NxcorePackage.MARKER__DIGEST:
+				return getDigest();
+			case NxcorePackage.MARKER__CHILDREN:
+				return getChildren();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -235,6 +304,7 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -252,6 +322,13 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 				return;
 			case NxcorePackage.MARKER__FEATURE:
 				setFeature((String)newValue);
+				return;
+			case NxcorePackage.MARKER__DIGEST:
+				setDigest((String)newValue);
+				return;
+			case NxcorePackage.MARKER__CHILDREN:
+				getChildren().clear();
+				getChildren().addAll((Collection<? extends Marker>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -280,6 +357,12 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 			case NxcorePackage.MARKER__FEATURE:
 				setFeature(FEATURE_EDEFAULT);
 				return;
+			case NxcorePackage.MARKER__DIGEST:
+				setDigest(DIGEST_EDEFAULT);
+				return;
+			case NxcorePackage.MARKER__CHILDREN:
+				getChildren().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -302,6 +385,10 @@ public class MarkerImpl extends MinimalEObjectImpl.Container implements Marker {
 				return DATE_EDEFAULT == null ? getDate() != null : !DATE_EDEFAULT.equals(getDate());
 			case NxcorePackage.MARKER__FEATURE:
 				return FEATURE_EDEFAULT == null ? getFeature() != null : !FEATURE_EDEFAULT.equals(getFeature());
+			case NxcorePackage.MARKER__DIGEST:
+				return DIGEST_EDEFAULT == null ? getDigest() != null : !DIGEST_EDEFAULT.equals(getDigest());
+			case NxcorePackage.MARKER__CHILDREN:
+				return !getChildren().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -391,13 +391,31 @@ public interface NxcorePackage extends EPackage {
 	int MARKER__FEATURE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Digest</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKER__DIGEST = 5;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKER__CHILDREN = 6;
+
+	/**
 	 * The number of structural features of the '<em>Marker</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKER_FEATURE_COUNT = 5;
+	int MARKER_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Marker</em>' class.
@@ -462,6 +480,24 @@ public interface NxcorePackage extends EPackage {
 	 * @ordered
 	 */
 	int GIT_MARKER__FEATURE = MARKER__FEATURE;
+
+	/**
+	 * The feature id for the '<em><b>Digest</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIT_MARKER__DIGEST = MARKER__DIGEST;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIT_MARKER__CHILDREN = MARKER__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2199,6 +2235,28 @@ public interface NxcorePackage extends EPackage {
 	EAttribute getMarker_Feature();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.nxcore.Marker#getDigest <em>Digest</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Digest</em>'.
+	 * @see org.nasdanika.models.nxcore.Marker#getDigest()
+	 * @see #getMarker()
+	 * @generated
+	 */
+	EAttribute getMarker_Digest();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.nxcore.Marker#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.nasdanika.models.nxcore.Marker#getChildren()
+	 * @see #getMarker()
+	 * @generated
+	 */
+	EReference getMarker_Children();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.nxcore.GitMarker <em>Git Marker</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2964,6 +3022,22 @@ public interface NxcorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MARKER__FEATURE = eINSTANCE.getMarker_Feature();
+
+		/**
+		 * The meta object literal for the '<em><b>Digest</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARKER__DIGEST = eINSTANCE.getMarker_Digest();
+
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MARKER__CHILDREN = eINSTANCE.getMarker_Children();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.nxcore.impl.GitMarkerImpl <em>Git Marker</em>}' class.

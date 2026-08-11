@@ -532,6 +532,26 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMarker_Digest() {
+		return (EAttribute)markerEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMarker_Children() {
+		return (EReference)markerEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGitMarker() {
 		return gitMarkerEClass;
 	}
@@ -1094,6 +1114,8 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 		createEAttribute(markerEClass, MARKER__COMMENT);
 		createEAttribute(markerEClass, MARKER__DATE);
 		createEAttribute(markerEClass, MARKER__FEATURE);
+		createEAttribute(markerEClass, MARKER__DIGEST);
+		createEReference(markerEClass, MARKER__CHILDREN);
 
 		gitMarkerEClass = createEClass(GIT_MARKER);
 		createEAttribute(gitMarkerEClass, GIT_MARKER__PATH);
@@ -1249,6 +1271,8 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 		initEAttribute(getMarker_Comment(), theEcorePackage.getEString(), "comment", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMarker_Date(), theEcorePackage.getEDate(), "date", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMarker_Feature(), theEcorePackage.getEString(), "feature", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMarker_Digest(), theEcorePackage.getEString(), "digest", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMarker_Children(), this.getMarker(), null, "children", null, 0, -1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gitMarkerEClass, GitMarker.class, "GitMarker", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGitMarker_Path(), theEcorePackage.getEString(), "path", null, 0, 1, GitMarker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1436,6 +1460,18 @@ public class NxcorePackageImpl extends EPackageImpl implements NxcorePackage {
 		   source,
 		   new String[] {
 			   "documentation", "*\nFeature name for feature markers"
+		   });
+		addAnnotation
+		  (getMarker_Digest(),
+		   source,
+		   new String[] {
+			   "documentation", "*\nOptional source hash/digest.\nE.g. SHA for a text file or Merkle tree hash for models - may exclude some features and may be also computed on graphs including non-containment references, not only on trees"
+		   });
+		addAnnotation
+		  (getMarker_Children(),
+		   source,
+		   new String[] {
+			   "documentation", "*\nChild markers. For example, a feature can be computed from two features with their own markers. In this case those markers may be recorded as\nchildren of a parent marker."
 		   });
 		addAnnotation
 		  (getGitMarker_Path(),
